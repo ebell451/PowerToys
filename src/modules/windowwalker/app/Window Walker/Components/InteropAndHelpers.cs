@@ -598,6 +598,9 @@ namespace WindowWalker.Components
         public static extern int EnumWindows(CallBackPtr callPtr, int lPar);
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern int EnumChildWindows(IntPtr hWnd, CallBackPtr callPtr, int lPar);
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder strText, int maxCount);
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
