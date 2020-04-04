@@ -45,39 +45,44 @@
             <TextBlock Text="A quick launcher that has additional capabilities without sacrificing performance." Style="{StaticResource BodyTextBlockStyle}"
                        TextWrapping="Wrap"/>
 
-            <ToggleSwitch Header="Enable PowerLauncher"
-                          IsOn="True"
-                          Margin="{StaticResource SmallTopMargin}" />
+            <ToggleSwitch x:Name="EnablePowerLauncher" 
+                          Header="Enable PowerLauncher"
+                          IsOn="{x:Bind Path=ViewModel.EnablePowerLauncher, Mode=TwoWay}"
+                          Margin="{StaticResource SmallTopMargin}"/>
 
             <TextBlock Text="Search &amp; results"
                        Style="{StaticResource SettingsGroupTitleStyle}"/>
 
-            <ComboBox Header="Search result preference"
-                          SelectedIndex="0"
-                              MinWidth="320"
-                          Margin="{StaticResource SmallTopMargin}">
+            <ComboBox x:Name="SearchResultPreference"
+                      Header="Search result preference"
+                      SelectedIndex="{x:Bind Path=ViewModel.SearchResultPreference, Mode=TwoWay}"
+                      MinWidth="320"
+                      Margin="{StaticResource SmallTopMargin}">
                 <ComboBoxItem>Most commonly used</ComboBoxItem>
                 <ComboBoxItem>Most recently used</ComboBoxItem>
                 <ComboBoxItem>Alphabetical order</ComboBoxItem>
                 <ComboBoxItem>Running processes/opened applications</ComboBoxItem>
             </ComboBox>
 
-            <ComboBox Header="Search type preference"
-                          SelectedIndex="0"
-                          MinWidth="320"
-                          Margin="{StaticResource SmallTopMargin}">
+            <ComboBox x:Name="SearchTypePreference"
+                      Header="Search type preference"
+                      SelectedIndex="{x:Bind Path=ViewModel.SearchTypePreference, Mode=TwoWay}"
+                      MinWidth="320"
+                      Margin="{StaticResource SmallTopMargin}"
+                >
                 <ComboBoxItem>Application name</ComboBoxItem>
                 <ComboBoxItem>A string that is contained in the application</ComboBoxItem>
                 <ComboBoxItem>Executable name</ComboBoxItem>
             </ComboBox>
 
-            <muxc:NumberBox Header="Maximum numbers of results"
-                            Value="4"
+            <muxc:NumberBox x:Name="MaximumNumberOfResults" 
+                            Header="Maximum numbers of results"
+                            Value="{x:Bind ViewModel.MaximumNumberOfResults, Mode=TwoWay}"
                             Width="320"
                             SpinButtonPlacementMode="Inline"
                             HorizontalAlignment="Left"
-                            Margin="{StaticResource SmallTopMargin}" />
-
+                            Margin="{StaticResource SmallTopMargin}"
+                            Minimum="1"/>
 
             <TextBlock Text="Shortcuts"
                        Width="320"
@@ -88,33 +93,43 @@
             <TextBox Header="Open PowerLauncher"
                      Width="320"
                      HorizontalAlignment="Left"
-                     Margin="{StaticResource SmallTopMargin}"/>
+                     Margin="{StaticResource SmallTopMargin}"
+                     Text="{x:Bind ViewModel.OpenPowerLauncher, Mode=TwoWay}"
+                     />
 
             <!-- TO DO: Add logic to only allow specific (or combination of) keys as entries -->
-            <TextBox Header="Open file location"
+            <TextBox x:Name="OpenFileLocation"
+                     Header="Open file location"
                      Width="320"
                      HorizontalAlignment="Left"
-                     Margin="{StaticResource SmallTopMargin}"/>
+                     Margin="{StaticResource SmallTopMargin}"
+                     Text="{x:Bind ViewModel.OpenFileLocation, Mode=TwoWay}"/>
 
             <!-- TO DO: Add logic to only allow specific (or combination of) keys as entries -->
-            <TextBox Header="Copy path location"
+            <TextBox x:Name="CopyPathLocation"
+                     Header="Copy path location"
                      Width="320"
                      HorizontalAlignment="Left"
-                     Margin="{StaticResource SmallTopMargin}"/>
+                     Margin="{StaticResource SmallTopMargin}"
+                     Text="{x:Bind ViewModel.CopyPathLocation, Mode=TwoWay}"/>
 
             <!-- TO DO: Add logic to only allow specific (or combination of) keys as entries -->
-            <TextBox Header="Open console"
+            <TextBox x:Name="OpenConsole" 
+                     Header="Open console"
                      HorizontalAlignment="Left"
                      Width="320"
-                     Margin="{StaticResource SmallTopMargin}"/>
+                     Margin="{StaticResource SmallTopMargin}"
+                     Text="{x:Bind ViewModel.OpenConsole, Mode=TwoWay}"/>
 
-            <CheckBox Content="Override Win+R key"
-                          IsChecked="True"
-                          Margin="{StaticResource SmallTopMargin}"/>
+            <CheckBox x:Name="OverrideWinRKey" 
+                      Content="Override Win+R key"
+                      Margin="{StaticResource SmallTopMargin}"
+                      IsChecked="{x:Bind ViewModel.OverrideWinRKey, Mode=TwoWay}"/>
 
-            <CheckBox Content="Override Win+S key"
-                          IsChecked="True" 
-                          Margin="{StaticResource SmallTopMargin}" />
+            <CheckBox x:Name="OverrideWinSKey"
+                      Content="Override Win+S key"
+                      Margin="{StaticResource SmallTopMargin}"
+                      IsChecked="{x:Bind ViewModel.OverrideWinSKey}" />
 
         </StackPanel>
 
